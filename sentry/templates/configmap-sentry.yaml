@@ -104,6 +104,12 @@ data:
     from sentry.conf.server import *  # NOQA
     from distutils.util import strtobool
 
+    # fix script _sentry_noopWarning
+    JS_SDK_LOADER_DEFAULT_SDK_URL = "https://browser.sentry-cdn.com/%s/bundle.tracing.min.js"
+    
+    # fix in dev server
+    CSRF_TRUSTED_ORIGINS = ["http://localhost:52836", "http://127.0.0.1:9000"]
+
     BYTE_MULTIPLIER = 1024
     UNITS = ("K", "M", "G")
     def unit_text_to_bytes(text):
